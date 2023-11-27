@@ -1,0 +1,61 @@
+Console.WriteLine("Zehmet olmasa, username daxil edin:");
+string username = Convert.ToString(Console.ReadLine());
+Console.WriteLine("Password daxil edin:");
+string password = Convert.ToString(Console.ReadLine());
+
+if (username != "Mirzayeva" || password != "Pass123")
+{
+    Console.WriteLine("Username ve ya parol sehvdir!");
+}
+else if (username == "Mirzayeva" &&  password == "Pass123") 
+{
+    string welcome = "Her vaxtiniz xeyir, xosh gelmisiniz!\n";
+    string procedure = "Lazim olan emeliyyati secin";
+    string increase = "1) Balansinizi artirin";
+    string decrease = "2) Balansinizdan pul cekin";
+    string check = "3) Balansiniza baxin";
+    string exit = "4) Chixish edin";
+    string mainPage = $"{procedure}\n\n {increase}\n {decrease}\n {check}\n {exit}\n";
+
+    int currentBalance = 100;
+
+    Console.WriteLine($"\n{welcome}");
+    Console.WriteLine(mainPage);
+
+    string ATM = "on";
+
+    while (ATM == "on")
+    {
+        int procedureNo = Convert.ToInt32(Console.ReadLine());
+
+        switch (procedureNo)
+        {
+            case 1:
+                Console.WriteLine("Medaxil edilecek mebleg");
+                int increaseNo = Convert.ToInt32(Console.ReadLine());
+                currentBalance = currentBalance + increaseNo;
+                Console.WriteLine($"Hal hazirki balansiniz: {currentBalance}");
+                Console.WriteLine(mainPage );
+                break;
+            case 2:
+                Console.WriteLine("Mexaric edilecek mebleg");
+                int decreaseNo = Convert.ToInt32(Console.ReadLine());
+                currentBalance = currentBalance - decreaseNo;
+                Console.WriteLine($"Hal hazirki balansiniz: {currentBalance}");
+                Console.WriteLine(mainPage );
+                break;
+
+            case 3:
+                Console.WriteLine($"Hal hazirki balansiniz: {currentBalance}");
+                Console.WriteLine(mainPage );
+                break;
+            case 4:
+                Console.WriteLine("Teshekkur edirik!");
+                ATM = "off";
+                break;
+
+        }
+    }
+
+
+}
